@@ -45,7 +45,7 @@
 - JS 
     - React
 - Backend
-    - Ruby? 
+    - Ruby/Rails
 - Database
     - MySQL
 
