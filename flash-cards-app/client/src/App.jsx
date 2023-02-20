@@ -50,9 +50,9 @@ render() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={}/>
-          <Route exact path='/login' component={}/>
-          <Route exact path='/signup' component={}/>
+          <Route exact path='/' component={isLoggedin}/>
+          <Route exact path='/login' component={isLoggedIn}/>
+          <Route exact path='/signup' component={isLoggedIn}/>
         </Switch>
       </BrowserRouter>
     </div>
