@@ -6,7 +6,7 @@ function Home() {
     <div>
         <Link to='/login'>Log In</Link>
         <br></br>
-        <Link to='/signup'>Log In</Link>
+        <Link to='/signup'>Sign Up</Link>
     </div>
   )
 }
