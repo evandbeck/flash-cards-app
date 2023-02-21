@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React, { Component } from 'react';
+import React, { Element } from 'react';
 import axios from 'axios';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Home from './Home';
+import Login from './Login';
+import Signup from './Signup';
 
-class App extends Component {
+class App extends Element {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +26,7 @@ class App extends Component {
     {withCredentials: true})
     .then(resp => {
       if (resp.data.logged_in) {
-        this.handleLogin(response)
+        this.handleLogin(resp)
       } else {
         this.handleLogout()
       }
@@ -48,13 +51,13 @@ class App extends Component {
 render() {
   return (
     <div>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path='/' component={isLoggedin}/>
-          <Route exact path='/login' component={isLoggedIn}/>
-          <Route exact path='/signup' component={isLoggedIn}/>
-        </Switch>
-      </BrowserRouter>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Home />}/>
+          <Route exact path='/login' element={<Login />}/>
+          <Route exact path='/signup' element={<Signup />}/>
+        </Routes>
+      </Router>
     </div>
   )
   };
