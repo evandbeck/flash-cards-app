@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div>
+    <div className="HomePadding">
         <Link to='/login'>Log In</Link>
         <br></br>
         <Link to='/signup'>Sign Up</Link>
