@@ -14,28 +14,28 @@ function App () {
 
 // *Resolve This!*
   function componentDidMount() {
-    loginStatus()
+    loginStatus();
   };
 
-  loginStatus = () => {
+  function loginStatus() {
     axios.get('http://localhost:3001/logged_in',
     {withCredentials: true})
     .then(resp => {
       if (resp.data.logged_in) {
-        handleLogin(resp)
+        handleLogin(resp);
       } else {
-        handleLogout()
+        handleLogout();
       }
     })
     .catch(error => console.log('api errors', error))
   };
 
-  handleLogin = (data) => {
+  function handleLogin(data) {
     setIsLoggedIn(true);
     setUser(data.user);
   };
 
-  handleLogout = () => {
+  function handleLogout() {
     setIsLoggedIn(false);
     setUser({});
   };
