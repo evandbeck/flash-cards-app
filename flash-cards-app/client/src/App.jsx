@@ -1,54 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-      user: {}
-    };
+function App () {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState({})
+
+// *Resolve This!*
+  function componentDidMount() {
+    loginStatus();
   };
 
-  componentDidMount() {
-    this.loginStatus()
-  };
-
-  loginStatus = () => {
+  function loginStatus() {
     axios.get('http://localhost:3001/logged_in',
     {withCredentials: true})
     .then(resp => {
       if (resp.data.logged_in) {
-        this.handleLogin(resp)
+        handleLogin(resp);
       } else {
-        this.handleLogout()
+        handleLogout();
       }
     })
     .catch(error => console.log('api errors', error))
   };
 
-  handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
+  function handleLogin(data) {
+    setIsLoggedIn(true);
+    setUser(data.user);
   };
 
-  handleLogout = () => {
-    this.setState({
-      isLoggedIn: false,
-      user: {}
-    })
+  function handleLogout() {
+    setIsLoggedIn(false);
+    setUser({});
   };
 
-render() {
   return (
     <div>
       <Router>
@@ -60,7 +51,6 @@ render() {
       </Router>
     </div>
   )
-  };
 };
 
 export default App;
