@@ -1,6 +1,8 @@
 # Flash Cards
 
 ## Flash Cards is a web application meant to be used to study topics related to programming with a simple flash card mechanic for retention.
+- npm start --prefix client
+- rails server
 
 ### Features (...)
 - Users can participate in curated “Lists” of Flash Cards, without being logged in
