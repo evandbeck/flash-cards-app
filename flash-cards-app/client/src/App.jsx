@@ -12,7 +12,7 @@ function App () {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState({})
 
-// *Resolve This!*
+  // *Resolve This!*
   function componentDidMount() {
     loginStatus();
   };
