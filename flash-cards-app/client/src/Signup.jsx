@@ -74,21 +74,21 @@ function Signup () {
                     type="text"
                     name="username"
                     value={username}
-                    onChange={handleChange()}
+                    onChange={(e) => handleChange(e.target.value)}
                 />
                 <input
                     placeholder="email"
                     type="text"
                     name="email"
                     value={email}
-                    onChange={handleChange()}
+                    onChange={(e) => handleChange(e.target.value)}
                 />
                 <input 
                     placeholder="password"
                     type="password"
                     name="password"
                     value={password}
-                    onChange={handleChange()}
+                    onChange={(e) => handleChange(e.target.value)}
                 />          
                 <input
                     placeholder="password confirmation"
