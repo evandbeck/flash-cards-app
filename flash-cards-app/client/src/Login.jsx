@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useHistory } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function Login () {
+function Login ({handleLogin}) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
+    const history = useHistory();
 
     // *Resolve This!*
-    function handleChange(event) {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
-    };
+    // Not necessary if I'm adding handleChange event in-line
+    // function handleChange(event) {
+    //     const {name, value} = event.target
+    //     this.setState({
+    //         [name]: value
+    //     })
+    // };
 
     function handleSubmit(event) {
         event.preventDefault()
-        setUsername(username);
-        setEmail(email);
-        setPassword(password);
+        // setUsername(username);
+        // setEmail(email);
+        // setPassword(password);
 
         let user = {
             username: username,
@@ -64,27 +66,27 @@ function Login () {
     return (
         <div>
             <h1>Log In</h1>        
-            <form onSubmit={handleSubmit()}>
+            <form onSubmit={handleSubmit}>
                 <input
                     placeholder="username"
                     type="text"
                     name="username"
                     value={username}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                     placeholder="email"
                     type="text"
                     name="email"
                     value={email}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     placeholder="password"
                     type="password"
                     name="password"
                     value={password}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                 />         
                 <button placeholder="submit" type="submit">Log In</button>          
                 <div>

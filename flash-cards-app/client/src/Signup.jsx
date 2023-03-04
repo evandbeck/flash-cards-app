@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useHistory } from 'react';
 import axios from 'axios';
 
-function Signup () {
+function Signup ({handleLogin}) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [password_confirmation, setPassword_confirmation] = useState('');
     const [errors, setErrors] = useState('');
+    const history = useHistory();
 
     // *Resolve This!*
-    function handleChange (event) {
-        const {name, value} = event.target
-        this.setState({
-        [name]: value
-        })
-    };
+    // Not necessary if I'm adding handleChange event in-line
+    // function handleChange (event) {
+    //     const {name, value} = event.target
+    //     this.setState({
+    //     [name]: value
+    //     })
+    // };
 
     function handleSubmit (event) {
         event.preventDefault()
         // *Resolve This!*
         // const {username, email, password, password_confirmation} = this.state
-        setUsername(username);
-        setEmail(email);
-        setPassword(password);
-        setPassword_confirmation(password_confirmation);
+        // setUsername(username);
+        // setEmail(email);
+        // setPassword(password);
+        // setPassword_confirmation(password_confirmation);
         
         let user = {
             username: username,
@@ -41,7 +43,7 @@ function Signup () {
                     setErrors(response.data.errors);
                 }
             })
-            .catch(error => console.log('api errors:', error))
+            .catch(error => console.log('api errors:', error));
     };
 
     // *Resolve This!*
@@ -68,34 +70,34 @@ function Signup () {
     return (
         <div>
             <h1>Sign Up</h1>        
-            <form onSubmit={handleSubmit()}>
+            <form onSubmit={handleSubmit}>
                 <input
                     placeholder="username"
                     type="text"
                     name="username"
                     value={username}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                     placeholder="email"
                     type="text"
                     name="email"
                     value={email}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <input 
                     placeholder="password"
                     type="password"
                     name="password"
                     value={password}
-                    onChange={(e) => handleChange(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                 />          
                 <input
                     placeholder="password confirmation"
                     type="password"
                     name="password_confirmation"
                     value={password_confirmation}
-                    onChange={handleChange()}
+                    onChange={(e) => setPassword_confirmation(e.target.value)}
                 />
                 <button placeholder="submit" type="submit">Sign Up</button>
             </form>

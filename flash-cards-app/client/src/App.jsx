@@ -10,7 +10,7 @@ import Signup from './Signup';
 
 function App () {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({});
 
   // *Resolve This!*
   function componentDidMount() {
@@ -45,8 +45,8 @@ function App () {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />}/>
-          <Route exact path='/login' element={<Login />} />
-          <Route exact path='/signup' element={<Signup />}/>
+          <Route exact path='/login' element={<Login handleLogin={handleLogin} />} />
+          <Route exact path='/signup' element={<Signup handleLogin={handleLogin} />}/>
         </Routes>
       </Router>
     </div>
