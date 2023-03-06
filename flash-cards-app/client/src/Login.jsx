@@ -7,7 +7,7 @@ function Login ({handleLogin}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
-    const history = useHistory();
+    // const history = useHistory();
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -25,7 +25,7 @@ function Login ({handleLogin}) {
             .then(response => {
                 if (response.data.logged_in) {
                     handleLogin(response.data);
-                    redirect();
+                    // redirect();
                 } else {
                     setErrors(response.data.errors);
                 }
@@ -34,9 +34,9 @@ function Login ({handleLogin}) {
             };
 
     // *Resolve This!*
-    function redirect() {
-        history.push('/')
-    };
+    // function redirect() {
+    //     history.push('/')
+    // };
 
      // *Resolve This!*
      function handleErrors () {
