@@ -9,15 +9,6 @@ function Signup ({handleLogin}) {
     const [errors, setErrors] = useState('');
     const history = useHistory();
 
-    // *Resolve This!*
-    // Not necessary if I'm adding handleChange event in-line
-    // function handleChange (event) {
-    //     const {name, value} = event.target
-    //     this.setState({
-    //     [name]: value
-    //     })
-    // };
-
     function handleSubmit (event) {
         event.preventDefault()
         // *Resolve This!*
