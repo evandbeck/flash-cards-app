@@ -7,7 +7,7 @@ function Signup ({handleLogin}) {
     const [password, setPassword] = useState('');
     const [password_confirmation, setPassword_confirmation] = useState('');
     const [errors, setErrors] = useState('');
-    const history = useHistory();
+    // const history = useHistory();
 
     function handleSubmit (event) {
         event.preventDefault()
@@ -29,7 +29,7 @@ function Signup ({handleLogin}) {
             .then(response => {
                 if (response.data.status === 'created') {
                     handleLogin(response.data);
-                    redirect();
+                    // redirect();
                 } else {
                     setErrors(response.data.errors);
                 }
@@ -38,9 +38,9 @@ function Signup ({handleLogin}) {
     };
 
     // *Resolve This!*
-    function redirect () {
-        history.push('/');
-    }
+    // function redirect () {
+    //     history.push('/');
+    // }
 
     // *Resolve This!*
     function handleErrors () {
