@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
+import Dashboard from './Dashboard';
 
 function App () {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,17 +41,26 @@ function App () {
     setUser({});
   };
 
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route exact path='/' element={<Home />}/>
-          <Route exact path='/login' element={<Login handleLogin={handleLogin} />} />
-          <Route exact path='/signup' element={<Signup handleLogin={handleLogin} />}/>
-        </Routes>
-      </Router>
-    </div>
-  )
+  // Routing logic based on wether user is logged in or not
+  if(!isLoggedIn) {
+    return (
+      <div>
+        <Router>
+          <Routes>
+            <Route exact path='/' element={<Home />}/>
+            <Route exact path='/login' element={<Login handleLogin={handleLogin} />} />
+            <Route exact path='/signup' element={<Signup handleLogin={handleLogin} />} />
+          </Routes>
+        </Router>
+      </div>
+    )
+    } else {
+      return (
+        <div>
+            <Dashboard user={user}/>
+        </div>
+      )
+    }
 };
 
 export default App;
