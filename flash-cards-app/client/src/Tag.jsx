@@ -2,7 +2,11 @@ import React from 'react'
 
 function Tag() {
   return (
-    <div>Tag</div>
+    <div>Tag
+      {/* - Tag
+        - Name
+        - Icon */}
+    </div>
   )
 }
 
