@@ -1,10 +1,11 @@
 import React from 'react'
 
 function Navbar({user}) {
-    const {username} = user;
+    // const {username} = user;
   return (
     <div>
-        <p>Welcome, {username}!</p>
+        {/* <p>Welcome, {username}!</p> */}
+        <p>Welcome, username!</p>
     </div>
   )
 }
