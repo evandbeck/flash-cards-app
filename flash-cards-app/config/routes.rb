@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pages#index'
+  # root 'pages#index'
 
   # post '/login',    to: 'sessions#create'
   # post '/logout',   to: 'sessions#destroy'
@@ -8,18 +8,16 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create, :show, :index] do
-        resources :items, only: [:create, :show, :index, :destroy]
-      end
       resources :lists
       resources :cards
       resources :tags
+      resources :users, only: [:create, :show, :index] do
+        resources :items, only: [:create, :show, :index, :destroy]
+      end
     end
   end
 
-  get '*path', to: 'pages#index', via :all
-
-end
+  # get '*path', to: 'pages#index', via :all
   
   # post '/users',         to: 'users#create'
   # get '/users/:user_id', to: 'users#show'
