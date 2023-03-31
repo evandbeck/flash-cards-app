@@ -6,7 +6,6 @@ module Api
                 lists = List.all
                 render json: lists
             end
-
         end
     end
 end

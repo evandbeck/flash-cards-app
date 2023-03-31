@@ -3,7 +3,8 @@ module Api
         class CardsController < ApplicationController
             # GET /cards
             def index
-                render json: @card
+                cards = Card.all
+                render json: cards
             end
         end
     end
